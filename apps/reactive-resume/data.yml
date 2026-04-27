@@ -1,0 +1,31 @@
+name: "Reactive Resume"
+tags:
+  - 工具
+title: "Reactive Resume"
+description: "免费开源的简历构建器。"
+additionalProperties:
+  key: reactive-resume
+  name: "Reactive Resume"
+  tags:
+    - Tool
+  shortDescZh: "免费开源的简历构建器。"
+  shortDescEn: "A free and open-source resume builder."
+  description:
+    en: "A free and open-source resume builder."
+    es-es: "Un creador de currículums gratuito y de código abierto."
+    ja: "無料でオープンソースの履歴書作成ツール。"
+    ms: "Pembina resume percuma dan sumber terbuka."
+    pt-br: "Um construtor de currículos gratuito e de código aberto."
+    ru: "Бесплатный конструктор резюме с открытым исходным кодом."
+    ko: "무료 오픈 소스 이력서 작성 도구."
+    zh-Hant: "免費開源的履歷建立工具。"
+    zh: "免费开源的简历构建器。"
+    tr: "Ücretsiz ve açık kaynaklı bir özgeçmiş oluşturucu."
+  type: tool
+  crossVersionUpdate: false
+  limit: 1
+  architectures:
+    - amd64
+  website: https://rxresu.me
+  github: https://github.com/AmruthPillai/Reactive-Resume
+  document: https://docs.rxresu.me/self-hosting/docker
