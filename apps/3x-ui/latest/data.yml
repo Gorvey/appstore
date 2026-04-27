@@ -1,0 +1,38 @@
+additionalProperties:
+  formFields:
+    - default: "false"
+      edit: true
+      envKey: XRAY_VMESS_AEAD_FORCED
+      labelEn: Force VMess AEAD
+      labelZh: 是否强制启用 VMess AEAD
+      label:
+        en: Force VMess AEAD
+        es-es: Forzar VMess AEAD
+        ja: VMess AEAD を強制的に有効化
+        ms: Paksa VMess AEAD
+        pt-br: Forçar VMess AEAD
+        ru: Принудительно включить VMess AEAD
+        ko: VMess AEAD 강제 활성화
+        zh-Hant: 是否強制啟用 VMess AEAD
+        zh: 是否强制启用 VMess AEAD
+        tr: VMess AEAD zorunlu olsun
+      required: true
+      type: text
+    - default: "true"
+      edit: true
+      envKey: XUI_ENABLE_FAIL2BAN
+      labelEn: Enable Fail2Ban
+      labelZh: 是否启用 Fail2Ban
+      label:
+        en: Enable Fail2Ban
+        es-es: Habilitar Fail2Ban
+        ja: Fail2Ban を有効化
+        ms: Dayakan Fail2Ban
+        pt-br: Ativar Fail2Ban
+        ru: Включить Fail2Ban
+        ko: Fail2Ban 활성화
+        zh-Hant: 是否啟用 Fail2Ban
+        zh: 是否启用 Fail2Ban
+        tr: Fail2Ban etkinleştir
+      required: true
+      type: text

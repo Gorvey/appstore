@@ -1,0 +1,40 @@
+name: 3X-UI
+tags:
+  - 自制
+  - 工具
+title: 基于网页的 Xray-core 控制面板
+description: 基于网页的 Xray-core 控制面板
+additionalProperties:
+  key: 3x-ui
+  name: 3X-UI
+  tags:
+    - 自制
+    - Tool
+  shortDescZh: 基于网页的 Xray-core 控制面板
+  shortDescEn: Web-based Xray-core control panel
+  description:
+    en: Web-based Xray-core control panel
+    es-es: Panel de control Xray-core basado en web
+    ja: Web ベースの Xray-core コントロールパネル
+    ms: Panel kawalan Xray-core berasaskan web
+    pt-br: Painel de controle Xray-core baseado na web
+    ru: Веб-панель управления Xray-core
+    ko: 웹 기반 Xray-core 제어판
+    zh-Hant: 基於網頁的 Xray-core 控制面板
+    zh: 基于网页的 Xray-core 控制面板
+    tr: Web tabanlı Xray-core kontrol paneli
+  type: tool
+  crossVersionUpdate: false
+  limit: 1
+  recommend: 0
+  website: https://github.com/MHSanaei/3x-ui
+  github: https://github.com/MHSanaei/3x-ui
+  document: https://github.com/MHSanaei/3x-ui/wiki
+  architectures:
+    - amd64
+    - arm64
+    - armv7
+    - armv6
+    - armv5
+    - s390x
+    - 386

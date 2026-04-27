@@ -1,0 +1,22 @@
+services:
+  3xui:
+    image: ghcr.io/mhsanaei/3x-ui:latest
+    container_name: ${CONTAINER_NAME}
+    restart: unless-stopped
+    tty: true
+    expose:
+      - "2053"
+    networks:
+      - 1panel-network
+    volumes:
+      - ./data/db:/etc/x-ui/
+      - ./data/cert:/root/cert/
+    environment:
+      XRAY_VMESS_AEAD_FORCED: ${XRAY_VMESS_AEAD_FORCED}
+      XUI_ENABLE_FAIL2BAN: ${XUI_ENABLE_FAIL2BAN}
+    labels:
+      createdBy: Apps
+
+networks:
+  1panel-network:
+    external: true
