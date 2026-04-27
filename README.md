@@ -1,11 +1,11 @@
- 中文 | [English](https://github.com/okxlin/appstore/blob/localApps/README-en.md)
+ 中文 | [English](https://github.com/Gorvey/appstore/blob/localApps/README-en.md)
 ***
 
 ## 打赏链接
 
 [**点我打赏，用爱发电**](https://afdian.com/a/dockerapps)
 
-[![**点我打赏，用爱发电**](https://github.com/okxlin/appstore/raw/localApps/docs/afdian-logo.png)](https://afdian.com/a/dockerapps)
+[![**点我打赏，用爱发电**](https://github.com/Gorvey/appstore/raw/localApps/docs/afdian-logo.png)](https://afdian.com/a/dockerapps)
 
 * * *
 ## 目录
@@ -72,7 +72,7 @@
 
 `1Panel`计划任务类型`Shell 脚本`的计划任务框里，添加并执行以下命令，或者终端运行以下命令，
 ```shell
-git clone -b localApps https://ghp.ci/https://github.com/okxlin/appstore /opt/1panel/resource/apps/local/appstore-localApps
+git clone -b localApps https://ghp.ci/https://github.com/Gorvey/appstore /opt/1panel/resource/apps/local/appstore-localApps
 
 cp -rf /opt/1panel/resource/apps/local/appstore-localApps/apps/* /opt/1panel/resource/apps/local/
 
@@ -85,7 +85,7 @@ rm -rf /opt/1panel/resource/apps/local/appstore-localApps
 
 `1Panel`计划任务类型`Shell 脚本`的计划任务框里，添加并执行以下命令，或者终端运行以下命令，
 ```shell
-wget -P /opt/1panel/resource/apps/local https://ghp.ci/https://github.com/okxlin/appstore/archive/refs/heads/localApps.zip
+wget -P /opt/1panel/resource/apps/local https://ghp.ci/https://github.com/Gorvey/appstore/archive/refs/heads/localApps.zip
 
 unzip -o -d /opt/1panel/resource/apps/local/ /opt/1panel/resource/apps/local/localApps.zip
 
@@ -104,7 +104,7 @@ rm -rf /opt/1panel/resource/apps/local/localApps.zip
 
 `1Panel`计划任务类型`Shell 脚本`的计划任务框里，添加并执行以下命令，或者终端运行以下命令，
 ```shell
-git clone -b localApps https://github.com/okxlin/appstore /opt/1panel/resource/apps/local/appstore-localApps
+git clone -b localApps https://github.com/Gorvey/appstore /opt/1panel/resource/apps/local/appstore-localApps
 
 cp -rf /opt/1panel/resource/apps/local/appstore-localApps/apps/* /opt/1panel/resource/apps/local/
 
@@ -117,7 +117,7 @@ rm -rf /opt/1panel/resource/apps/local/appstore-localApps
 
 `1Panel`计划任务类型`Shell 脚本`的计划任务框里，添加并执行以下命令，或者终端运行以下命令，
 ```shell
-wget -P /opt/1panel/resource/apps/local https://github.com/okxlin/appstore/archive/refs/heads/localApps.zip
+wget -P /opt/1panel/resource/apps/local https://github.com/Gorvey/appstore/archive/refs/heads/localApps.zip
 
 unzip -o -d /opt/1panel/resource/apps/local/ /opt/1panel/resource/apps/local/localApps.zip
 
@@ -161,4 +161,4 @@ cat ./data/hbbs/id_ed25519.pub
 
 ## 4. 应用一览图
 
-![](https://github.com/okxlin/appstore/raw/localApps/docs/app-list.png)
+![](https://github.com/Gorvey/appstore/raw/localApps/docs/app-list.png)

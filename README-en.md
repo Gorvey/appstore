@@ -1,11 +1,11 @@
-[中文](https://github.com/okxlin/appstore/blob/localApps/README.md) | English
+[中文](https://github.com/Gorvey/appstore/blob/localApps/README.md) | English
 ***
 
 ## Contribution Link
 
 [**Click here to contribute with AFDIAN**](https://afdian.com/a/dockerapps)
 
-[![**Click here to contribute with AFDIAN**](https://github.com/okxlin/appstore/raw/localApps/docs/afdian-logo.png)](https://afdian.com/a/dockerapps)
+[![**Click here to contribute with AFDIAN**](https://github.com/Gorvey/appstore/raw/localApps/docs/afdian-logo.png)](https://afdian.com/a/dockerapps)
 
 * * *
 
@@ -74,7 +74,7 @@ The default installation path of `1Panel` is `/opt/`, which can be modified as n
 In the `Shell Script` task type in the `1Panel` scheduled tasks, add and execute the following command, or run the following command in the terminal:
 
 ```shell
-git clone -b localApps https://ghp.ci/https://github.com/okxlin/appstore /opt/1panel/resource/apps/local/appstore-localApps
+git clone -b localApps https://ghp.ci/https://github.com/Gorvey/appstore /opt/1panel/resource/apps/local/appstore-localApps
 
 cp -rf /opt/1panel/resource/apps/local/appstore-localApps/apps/* /opt/1panel/resource/apps/local/
 
@@ -88,7 +88,7 @@ Then refresh the local applications in the app store.
 In the `Shell Script` task type in the `1Panel` scheduled tasks, add and execute the following command, or run the following command in the terminal:
 
 ```shell
-wget -P /opt/1panel/resource/apps/local https://ghp.ci/https://github.com/okxlin/appstore/archive/refs/heads/localApps.zip
+wget -P /opt/1panel/resource/apps/local https://ghp.ci/https://github.com/Gorvey/appstore/archive/refs/heads/localApps.zip
 
 unzip -o -d /opt/1panel/resource/apps/local/ /opt/1panel/resource/apps/local/localApps.zip
 
@@ -108,7 +108,7 @@ Then refresh the local applications in the app store.
 In the `Shell Script` task type in the `1Panel` scheduled tasks, add and execute the following command, or run the following command in the terminal:
 
 ```shell
-git clone -b localApps https://github.com/okxlin/appstore /opt/1panel/resource/apps/local/appstore-localApps
+git clone -b localApps https://github.com/Gorvey/appstore /opt/1panel/resource/apps/local/appstore-localApps
 
 cp -rf /opt/1panel/resource/apps/local/appstore-localApps/apps/* /opt/1panel/resource/apps/local/
 
@@ -122,7 +122,7 @@ Then refresh the local applications in the app store.
 In the `Shell Script` task type in the `1Panel` scheduled tasks, add and execute the following command, or run the following command in the terminal:
 
 ```shell
-wget -P /opt/1panel/resource/apps/local https://github.com/okxlin/appstore/archive/refs/heads/localApps.zip
+wget -P /opt/1panel/resource/apps/local https://github.com/Gorvey/appstore/archive/refs/heads/localApps.zip
 
 unzip -o -d /opt/1panel/resource/apps/local/ /opt/1panel/resource/apps/local/localApps.zip
 
@@ -165,4 +165,4 @@ cat ./data/hbbs/id_ed25519.pub
 
 ## 4. App Overview
 
-![](https://github.com/okxlin/appstore/raw/localApps/docs/app-list.png)
+![](https://github.com/Gorvey/appstore/raw/localApps/docs/app-list.png)
