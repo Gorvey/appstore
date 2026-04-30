@@ -1,2 +1,22 @@
 additionalProperties:
-  formFields: []
+  formFields:
+    - default: mtranserver
+      edit: true
+      envKey: MT_API_TOKEN
+      labelEn: API Token
+      labelZh: API Token
+      label:
+        en: 'API Token'
+        es-es: 'API Token'
+        ja: 'API Token'
+        ms: 'API Token'
+        pt-br: 'API Token'
+        ru: 'API Token'
+        ko: 'API Token'
+        zh-Hant: 'API Token'
+        zh: 'API Token'
+        tr: 'API Token'
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password

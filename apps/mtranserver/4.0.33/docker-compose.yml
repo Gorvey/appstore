@@ -12,6 +12,7 @@ services:
       - "MT_PORT=8989"
       - "MT_ENABLE_UI=true"
       - "MT_OFFLINE=false"
+      - "MT_API_TOKEN=${MT_API_TOKEN}"
     volumes:
       - ./models:/app/models
     labels:
