@@ -18,11 +18,9 @@ docker compose -f apps/answer/latest/docker-compose.yml down
 
 ## 编码风格与命名约定
 
-YAML 使用 2 空格缩进，保持键名与现有样例一致。应用目录使用小写字母、数字和连字符，例如 `chatgpt-next-web`。Compose 主服务必须使用 `container_name: ${CONTAINER_NAME}`，持久化目录优先使用相对路径，例如 `./data:/app/data`。镜像标签应明确；自用应用可按需求保留官方 `latest`。
+YAML 使用 2 空格缩进，保持键名与现有样例一致。应用目录使用小写字母、数字和连字符，例如 `chatgpt-next-web`。Compose 主服务必须使用 `container_name: ${CONTAINER_NAME}`，持久化目录优先使用相对路径，例如 `./data:/app/data`。镜像标签应明确；
 
 ## 应用打包定制规则
-
-创建新应用时只保留一个 `latest` 版本目录，不生成历史版本目录。根 `data.yml` 中设置 `crossVersionUpdate: false`，应用更新不走 1Panel App 的多版本更新逻辑。
 
 默认不配置 `ports`、`PANEL_APP_PORT_*` 或宿主机端口映射。服务加入 `1panel-network`，通过 `expose` 标注容器端口即可，由反向代理访问容器端口。只有在用户明确要求，或官方应用必须通过监听 `127.0.0.1`、`0.0.0.0`、宿主机端口才能正常运行时，才添加端口相关配置，并在说明中写清原因。
 

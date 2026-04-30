@@ -1,0 +1,21 @@
+services:
+  mtranserver:
+    image: xxnuo/mtranserver:4.0.33
+    container_name: "${CONTAINER_NAME}"
+    restart: always
+    networks:
+      - 1panel-network
+    expose:
+      - "8989"
+    environment:
+      - "MT_HOST=0.0.0.0"
+      - "MT_PORT=8989"
+      - "MT_ENABLE_UI=true"
+      - "MT_OFFLINE=false"
+    volumes:
+      - ./models:/app/models
+    labels:
+      createdBy: Apps
+networks:
+  1panel-network:
+    external: true

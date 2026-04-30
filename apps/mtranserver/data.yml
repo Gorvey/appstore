@@ -1,0 +1,34 @@
+name: MTranServer
+tags:
+  - AI
+  - Tool
+title: MTranServer
+description: "低资源占用、无需 GPU 的高性能离线翻译模型服务器。"
+additionalProperties:
+  key: mtranserver
+  name: MTranServer
+  tags:
+    - AI
+    - Tool
+  shortDescZh: "低资源占用、无需 GPU 的高性能离线翻译模型服务器。"
+  shortDescEn: "High-performance offline translation model server with low resource usage and no GPU requirement."
+  description:
+    en: "High-performance offline translation model server with low resource usage and no GPU requirement."
+    es-es: "High-performance offline translation model server with low resource usage and no GPU requirement."
+    ja: "High-performance offline translation model server with low resource usage and no GPU requirement."
+    ms: "High-performance offline translation model server with low resource usage and no GPU requirement."
+    pt-br: "High-performance offline translation model server with low resource usage and no GPU requirement."
+    ru: "High-performance offline translation model server with low resource usage and no GPU requirement."
+    ko: "High-performance offline translation model server with low resource usage and no GPU requirement."
+    zh-Hant: "低資源佔用、無需 GPU 的高性能離線翻譯模型伺服器。"
+    zh: "低资源占用、无需 GPU 的高性能离线翻译模型服务器。"
+    tr: "High-performance offline translation model server with low resource usage and no GPU requirement."
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  architectures:
+    - amd64
+    - arm64
+  website: https://github.com/xxnuo/MTranServer
+  github: https://github.com/xxnuo/MTranServer
+  document: https://github.com/xxnuo/MTranServer/blob/main/API.md
