@@ -1,0 +1,34 @@
+name: CliRelay
+tags:
+  - AI
+  - Tool
+title: "统一的 AI CLI 代理服务器"
+description: "统一的 AI CLI 代理服务器，支持 OpenAI 兼容客户端。"
+additionalProperties:
+  key: clirelay
+  name: CliRelay
+  tags:
+    - AI
+    - Tool
+  shortDescZh: "统一的 AI CLI 代理服务器，支持 OpenAI 兼容客户端。"
+  shortDescEn: "A unified proxy server for AI CLI tools and OpenAI-compatible clients."
+  description:
+    en: "A unified proxy server for AI CLI tools and OpenAI-compatible clients."
+    es-es: "A unified proxy server for AI CLI tools and OpenAI-compatible clients."
+    ja: "A unified proxy server for AI CLI tools and OpenAI-compatible clients."
+    ms: "A unified proxy server for AI CLI tools and OpenAI-compatible clients."
+    pt-br: "A unified proxy server for AI CLI tools and OpenAI-compatible clients."
+    ru: "A unified proxy server for AI CLI tools and OpenAI-compatible clients."
+    ko: "A unified proxy server for AI CLI tools and OpenAI-compatible clients."
+    zh-Hant: "統一的 AI CLI 代理伺服器，支援 OpenAI 相容用戶端。"
+    zh: "统一的 AI CLI 代理服务器，支持 OpenAI 兼容客户端。"
+    tr: "A unified proxy server for AI CLI tools and OpenAI-compatible clients."
+  type: tool
+  crossVersionUpdate: false
+  limit: 0
+  architectures:
+    - amd64
+    - arm64
+  website: https://help.router-for.me/
+  github: https://github.com/kittors/CliRelay
+  document: https://help.router-for.me/
