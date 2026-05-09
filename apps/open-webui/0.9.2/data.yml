@@ -1,0 +1,36 @@
+additionalProperties:
+  formFields:
+    - envKey: OPENAI_API_BASE_URL
+      default: http://hermes-agent:8642/v1
+      labelEn: "Hermes API Base URL"
+      labelZh: "Hermes API 地址"
+      required: true
+      type: text
+      label:
+        en: "Hermes API Base URL"
+        es-es: "Hermes API Base URL"
+        ja: "Hermes API Base URL"
+        ms: "Hermes API Base URL"
+        pt-br: "Hermes API Base URL"
+        ru: "Hermes API Base URL"
+        ko: "Hermes API Base URL"
+        zh-Hant: "Hermes API 位址"
+        zh: "Hermes API 地址"
+        tr: "Hermes API Base URL"
+    - envKey: OPENAI_API_KEY
+      default: change-me-hermes-key
+      labelEn: "Hermes API Key"
+      labelZh: "Hermes API Key"
+      required: true
+      type: password
+      label:
+        en: "Hermes API Key"
+        es-es: "Hermes API Key"
+        ja: "Hermes API Key"
+        ms: "Hermes API Key"
+        pt-br: "Hermes API Key"
+        ru: "Hermes API Key"
+        ko: "Hermes API Key"
+        zh-Hant: "Hermes API Key"
+        zh: "Hermes API Key"
+        tr: "Hermes API Key"

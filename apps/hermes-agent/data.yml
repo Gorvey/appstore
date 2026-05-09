@@ -1,0 +1,32 @@
+name: "Hermes Agent"
+tags:
+  - Tool
+title: "Hermes Agent"
+description: "一个具备消息网关、技能、记忆和 OpenAI 兼容 API 服务的自我改进 AI Agent。"
+additionalProperties:
+  key: hermes-agent
+  name: "Hermes Agent"
+  tags:
+    - Tool
+  shortDescZh: "一个具备消息网关、技能、记忆和 OpenAI 兼容 API 服务的自我改进 AI Agent。"
+  shortDescEn: "A self-improving AI agent with gateway messaging, skills, memory, and an OpenAI-compatible API server."
+  description:
+    en: "A self-improving AI agent with gateway messaging, skills, memory, and an OpenAI-compatible API server."
+    es-es: "A self-improving AI agent with gateway messaging, skills, memory, and an OpenAI-compatible API server."
+    ja: "A self-improving AI agent with gateway messaging, skills, memory, and an OpenAI-compatible API server."
+    ms: "A self-improving AI agent with gateway messaging, skills, memory, and an OpenAI-compatible API server."
+    pt-br: "A self-improving AI agent with gateway messaging, skills, memory, and an OpenAI-compatible API server."
+    ru: "A self-improving AI agent with gateway messaging, skills, memory, and an OpenAI-compatible API server."
+    ko: "A self-improving AI agent with gateway messaging, skills, memory, and an OpenAI-compatible API server."
+    zh-Hant: "一个具备消息网关、技能、记忆和 OpenAI 兼容 API 服务的自我改进 AI Agent。"
+    zh: "一个具备消息网关、技能、记忆和 OpenAI 兼容 API 服务的自我改进 AI Agent。"
+    tr: "A self-improving AI agent with gateway messaging, skills, memory, and an OpenAI-compatible API server."
+  type: tool
+  crossVersionUpdate: true
+  limit: 1
+  architectures:
+    - amd64
+    - arm64
+  website: https://hermes-agent.nousresearch.com
+  github: https://github.com/NousResearch/hermes-agent
+  document: https://hermes-agent.nousresearch.com/docs/user-guide/docker

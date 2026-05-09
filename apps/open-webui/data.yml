@@ -1,0 +1,32 @@
+name: "Open WebUI"
+tags:
+  - Tool
+title: "Open WebUI"
+description: "一个可通过 OpenAI 兼容 API 连接 Hermes Agent 的自托管 AI 聊天界面。"
+additionalProperties:
+  key: open-webui
+  name: "Open WebUI"
+  tags:
+    - Tool
+  shortDescZh: "一个可通过 OpenAI 兼容 API 连接 Hermes Agent 的自托管 AI 聊天界面。"
+  shortDescEn: "A self-hosted AI chat interface that can connect to Hermes Agent through an OpenAI-compatible API."
+  description:
+    en: "A self-hosted AI chat interface that can connect to Hermes Agent through an OpenAI-compatible API."
+    es-es: "A self-hosted AI chat interface that can connect to Hermes Agent through an OpenAI-compatible API."
+    ja: "A self-hosted AI chat interface that can connect to Hermes Agent through an OpenAI-compatible API."
+    ms: "A self-hosted AI chat interface that can connect to Hermes Agent through an OpenAI-compatible API."
+    pt-br: "A self-hosted AI chat interface that can connect to Hermes Agent through an OpenAI-compatible API."
+    ru: "A self-hosted AI chat interface that can connect to Hermes Agent through an OpenAI-compatible API."
+    ko: "A self-hosted AI chat interface that can connect to Hermes Agent through an OpenAI-compatible API."
+    zh-Hant: "一个可通过 OpenAI 兼容 API 连接 Hermes Agent 的自托管 AI 聊天界面。"
+    zh: "一个可通过 OpenAI 兼容 API 连接 Hermes Agent 的自托管 AI 聊天界面。"
+    tr: "A self-hosted AI chat interface that can connect to Hermes Agent through an OpenAI-compatible API."
+  type: tool
+  crossVersionUpdate: true
+  limit: 1
+  architectures:
+    - amd64
+    - arm64
+  website: https://openwebui.com
+  github: https://github.com/open-webui/open-webui
+  document: https://docs.openwebui.com
