@@ -1,0 +1,24 @@
+services:
+  cpa-account-biopsy-system:
+    image: eceasy/cpa-account-biopsy-system:0.2-bate
+    container_name: "${CONTAINER_NAME}"
+    restart: always
+    networks:
+      - 1panel-network
+    ports:
+      - "${PANEL_APP_PORT_HTTP}:18317"
+    environment:
+      AH_LISTEN_ADDR: :18317
+      AH_MANAGEMENT_URL: "${CPA_MANAGEMENT_URL:-http://127.0.0.1:8317}"
+      AH_MANAGEMENT_KEY: "${CPA_MANAGEMENT_KEY}"
+      AH_WEB_TOKEN: "${CPA_WEB_TOKEN:-}"
+      AH_AUTH_DIR: /data/auths
+      AH_SNAPSHOT_INTERVAL: "${CPA_SNAPSHOT_INTERVAL:-5m}"
+      AH_PROBE_INTERVAL: "${CPA_PROBE_INTERVAL:-1h}"
+    volumes:
+      - "${CPA_AUTH_DIR}:/data/auths"
+    labels:
+      createdBy: Apps
+networks:
+  1panel-network:
+    external: true

@@ -1,0 +1,34 @@
+name: "CPA Account Biopsy System"
+tags:
+  - AI
+  - Tool
+title: "CPA Account Biopsy System"
+description: "CLIProxyAPI 独立旁路 sidecar 服务，提供账号健康检查、额度窗口展示、状态聚合与独立 Web 仪表台。"
+additionalProperties:
+  key: cpa-account-biopsy-system
+  name: "CPA Account Biopsy System"
+  tags:
+    - AI
+    - Tool
+  shortDescZh: "CLIProxyAPI 独立旁路 sidecar 服务，提供账号健康检查、额度窗口展示、状态聚合与独立 Web 仪表台。"
+  shortDescEn: "A standalone sidecar service for CLIProxyAPI providing account health inspection, quota window visualization, status aggregation, and independent Web dashboard."
+  description:
+    en: "A standalone sidecar service for CLIProxyAPI providing account health inspection, quota window visualization, status aggregation, and independent Web dashboard."
+    es-es: "A standalone sidecar service for CLIProxyAPI providing account health inspection, quota window visualization, status aggregation, and independent Web dashboard."
+    ja: "A standalone sidecar service for CLIProxyAPI providing account health inspection, quota window visualization, status aggregation, and independent Web dashboard."
+    ms: "A standalone sidecar service for CLIProxyAPI providing account health inspection, quota window visualization, status aggregation, and independent Web dashboard."
+    pt-br: "A standalone sidecar service for CLIProxyAPI providing account health inspection, quota window visualization, status aggregation, and independent Web dashboard."
+    ru: "A standalone sidecar service for CLIProxyAPI providing account health inspection, quota window visualization, status aggregation, and independent Web dashboard."
+    ko: "A standalone sidecar service for CLIProxyAPI providing account health inspection, quota window visualization, status aggregation, and independent Web dashboard."
+    zh-Hant: "CLIProxyAPI 独立旁路 sidecar 服务，提供账号健康检查、额度窗口展示、状态聚合与独立 Web 仪表台。"
+    zh: "CLIProxyAPI 独立旁路 sidecar 服务，提供账号健康检查、额度窗口展示、状态聚合与独立 Web 仪表台。"
+    tr: "A standalone sidecar service for CLIProxyAPI providing account health inspection, quota window visualization, status aggregation, and independent Web dashboard."
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  architectures:
+    - amd64
+    - arm64
+  website: https://github.com/xiaoxin-zk/cpa-account-biopsy-system
+  github: https://github.com/xiaoxin-zk/cpa-account-biopsy-system
+  document: https://github.com/xiaoxin-zk/cpa-account-biopsy-system/blob/main/README.md

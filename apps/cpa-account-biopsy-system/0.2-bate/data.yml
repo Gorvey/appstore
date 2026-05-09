@@ -1,0 +1,122 @@
+additionalProperties:
+  formFields:
+    - default: http://127.0.0.1:8317
+      envKey: CPA_MANAGEMENT_URL
+      labelEn: "Management API URL (CLIProxyAPI)"
+      labelZh: "管理 API 地址（CLIProxyAPI）"
+      label:
+        en: "Management API URL (CLIProxyAPI)"
+        es-es: "Management API URL (CLIProxyAPI)"
+        ja: "管理API URL（CLIProxyAPI）"
+        ms: "URL API Pengurusan (CLIProxyAPI)"
+        pt-br: "URL da API de Gerenciamento (CLIProxyAPI)"
+        ru: "URL API управления (CLIProxyAPI)"
+        ko: "관리 API URL (CLIProxyAPI)"
+        zh-Hant: "管理 API 位址（CLIProxyAPI）"
+        zh: "管理 API 地址（CLIProxyAPI）"
+        tr: "Yönetim API URL'si (CLIProxyAPI)"
+      required: true
+      type: text
+    - default: ""
+      envKey: CPA_MANAGEMENT_KEY
+      labelEn: "Management Key (CLIProxyAPI)"
+      labelZh: "管理密钥（CLIProxyAPI）"
+      label:
+        en: "Management Key (CLIProxyAPI)"
+        es-es: "Management Key (CLIProxyAPI)"
+        ja: "管理キー（CLIProxyAPI）"
+        ms: "Kunci Pengurusan (CLIProxyAPI)"
+        pt-br: "Chave de Gerenciamento (CLIProxyAPI)"
+        ru: "Ключ управления (CLIProxyAPI)"
+        ko: "관리 키 (CLIProxyAPI)"
+        zh-Hant: "管理金鑰（CLIProxyAPI）"
+        zh: "管理密钥（CLIProxyAPI）"
+        tr: "Yönetim Anahtarı (CLIProxyAPI)"
+      required: true
+      type: password
+    - default: /opt/cli-proxy-api/auths
+      envKey: CPA_AUTH_DIR
+      labelEn: "Auths Directory (CLIProxyAPI)"
+      labelZh: "Auths 目录路径（CLIProxyAPI）"
+      label:
+        en: "Auths Directory (CLIProxyAPI)"
+        es-es: "Auths Directory (CLIProxyAPI)"
+        ja: "認証ディレクトリ（CLIProxyAPI）"
+        ms: "Direktori Auths (CLIProxyAPI)"
+        pt-br: "Diretório de Autenticação (CLIProxyAPI)"
+        ru: "Директория аутентификации (CLIProxyAPI)"
+        ko: "인증 디렉토리 (CLIProxyAPI)"
+        zh-Hant: "Auths 目錄路徑（CLIProxyAPI）"
+        zh: "Auths 目录路径（CLIProxyAPI）"
+        tr: "Kimlik Doğrulama Dizini (CLIProxyAPI)"
+      required: true
+      type: text
+    - default: ""
+      envKey: CPA_WEB_TOKEN
+      labelEn: "Dashboard Password (optional)"
+      labelZh: "仪表台密码（可选）"
+      label:
+        en: "Dashboard Password (optional)"
+        es-es: "Dashboard Password (optional)"
+        ja: "ダッシュボードパスワード（任意）"
+        ms: "Kata Laluan Papan Pemuka (pilihan)"
+        pt-br: "Senha do Painel (opcional)"
+        ru: "Пароль панели (необязательно)"
+        ko: "대시보드 비밀번호 (선택 사항)"
+        zh-Hant: "儀表台密碼（可選）"
+        zh: "仪表台密码（可选）"
+        tr: "Pano Parolası (isteğe bağlı)"
+      required: false
+      type: password
+    - default: 5m
+      envKey: CPA_SNAPSHOT_INTERVAL
+      labelEn: "Snapshot Interval"
+      labelZh: "快照刷新周期"
+      label:
+        en: "Snapshot Interval"
+        es-es: "Snapshot Interval"
+        ja: "スナップショット間隔"
+        ms: "Selang Snapshot"
+        pt-br: "Intervalo de Snapshot"
+        ru: "Интервал снимков"
+        ko: "스냅샷 간격"
+        zh-Hant: "快照重整週期"
+        zh: "快照刷新周期"
+        tr: "Anlık Görüntü Aralığı"
+      required: false
+      type: text
+    - default: 1h
+      envKey: CPA_PROBE_INTERVAL
+      labelEn: "Probe Interval"
+      labelZh: "探测周期"
+      label:
+        en: "Probe Interval"
+        es-es: "Probe Interval"
+        ja: "プローブ間隔"
+        ms: "Selang Probe"
+        pt-br: "Intervalo de Sondagem"
+        ru: "Интервал проверки"
+        ko: "프로브 간격"
+        zh-Hant: "探測週期"
+        zh: "探测周期"
+        tr: "Yoklama Aralığı"
+      required: false
+      type: text
+    - default: 18317
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: "Web UI Port"
+      labelZh: "Web UI 端口"
+      label:
+        en: "Web UI Port"
+        es-es: "Puerto web"
+        ja: "Web UIポート"
+        ms: "Port Web UI"
+        pt-br: "Porta da Web UI"
+        ru: "Порт веб-интерфейса"
+        ko: "웹 UI 포트"
+        zh-Hant: "Web UI 埠"
+        zh: "Web UI 端口"
+        tr: "Web UI Bağlantı Noktası"
+      required: true
+      rule: paramPort
+      type: number
