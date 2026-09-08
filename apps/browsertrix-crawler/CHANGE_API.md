@@ -40,6 +40,14 @@ Streamable HTTP 入口为 `/mcp`，使用同一个 Bearer Token，提供：
 
 不超过 64 KiB 的文本可由 `get_content` 直接内联返回；更大的文本和二进制返回受认证保护的 REST 路径。
 
+当前项目已在 `.codex/config.toml` 中配置远程 MCP。使用前在启动 Codex 的本机环境设置 Token，配置文件不会保存实际密钥：
+
+```bash
+export BROWSERTRIX_CHANGE_API_TOKEN='<CHANGE_API_TOKEN>'
+```
+
+重新启动或重新载入项目后，Codex 将通过 `https://browsertrix-crawler.cooool.fun/mcp` 连接。
+
 ## 数据与保留
 
 服务只读挂载 `crawls/`，将 SQLite 和提取正文写入 `change-api-data/`。归档至少连续两次扫描保持大小及修改时间不变，并通过 ZIP、`datapackage.json` 和 WARC 检查后才会发布为 ready。默认不自动删除归档、索引或正文。
