@@ -1,0 +1,103 @@
+services:
+  browsertrix-crawler:
+    image: webrecorder/browsertrix-crawler:1.14.3
+    container_name: "${CONTAINER_NAME}"
+    restart: always
+    networks:
+      - 1panel-network
+    environment:
+      CRAWL_INTERVAL: "${CRAWL_INTERVAL}"
+    volumes:
+      - ./crawls:/crawls
+      - ./config:/config:ro
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    shm_size: 1gb
+    depends_on:
+      redis:
+        condition: service_healthy
+    command:
+      - /bin/sh
+      - "-c"
+      - |
+        trap 'if [ -n "$$child" ]; then kill -TERM "$$child" 2>/dev/null; wait "$$child"; fi; exit 0' TERM INT
+        if [ -f /crawls/.last-crawl-completed ]; then
+          sleep "$${CRAWL_INTERVAL}" &
+          child=$$!
+          wait "$$child"
+          child=
+        fi
+        grep -E '^[[:space:]]*https?://' /config/seeds.txt > /tmp/seeds.txt || true
+        if [ ! -s /tmp/seeds.txt ]; then
+          echo "No seed URL configured in /config/seeds.txt; retrying in 60 seconds."
+          sleep 60 &
+          child=$$!
+          wait "$$child"
+          exit 0
+        fi
+        crawl --config /config/crawl-config.yml --seedFile /tmp/seeds.txt &
+        child=$$!
+        wait "$$child"
+        status=$$?
+        child=
+        date -u +%Y-%m-%dT%H:%M:%SZ > /crawls/.last-crawl-completed
+        exit "$$status"
+    labels:
+      createdBy: Apps
+  change-api:
+    build:
+      context: ./change-api
+    container_name: "${CONTAINER_NAME}-change-api"
+    restart: always
+    networks:
+      - 1panel-network
+    environment:
+      CHANGE_API_TOKEN: "${CHANGE_API_TOKEN}"
+      CHANGE_API_CRAWLS_DIR: /crawls
+      CHANGE_API_DATA_DIR: /data
+      CHANGE_API_SCAN_INTERVAL: "30"
+      CHANGE_API_MAX_CONTENT_BYTES: "33554432"
+      CHANGE_API_MCP_INLINE_BYTES: "65536"
+    volumes:
+      - ./crawls:/crawls:ro
+      - ./change-api-data:/data
+    expose:
+      - "8080"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/healthz', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    labels:
+      createdBy: Apps
+  redis:
+    image: redis:7.4.11-alpine
+    container_name: "${CONTAINER_NAME}-redis"
+    restart: always
+    networks:
+      - 1panel-network
+    command:
+      - redis-server
+      - "--appendonly"
+      - "yes"
+    volumes:
+      - ./redis-data:/data
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    labels:
+      createdBy: Apps
+networks:
+  1panel-network:
+    external: true

@@ -1,0 +1,28 @@
+# Browsertrix Crawler 1.14.3 定时多站点抓取配置。
+# 种子 URL 从同目录的 seeds.txt 读取。
+
+# 每轮写入独立的时间戳集合，避免覆盖以前的归档。
+collection: crawl-@ts
+
+# 每个种子默认只抓取其 URL 前缀范围。
+scopeType: prefix
+
+# 0 表示不限制页数；建议首次使用时设置一个较小的正整数。
+pageLimit: 100
+workers: 1
+pageLoadTimeout: 90
+
+# 输出可由 ReplayWeb.page 打开的 WACZ，并提取页面文本。
+generateWACZ: true
+text:
+  - to-pages
+
+# URL 去重和内容哈希去重默认自动启用，无需额外参数。
+# -1 保持高保真抓取，不启用“发现重复 HTML 后跳过整页资源”的优化。
+dedupePagesMinDepth: -1
+
+# 使用随应用部署的持久化 Redis，在多轮抓取之间复用内容哈希索引。
+redisDedupeUrl: redis://redis:6379/0
+
+saveState: partial
+reportSkipped: true

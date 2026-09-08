@@ -1,0 +1,38 @@
+additionalProperties:
+  formFields:
+    - default: ""
+      edit: true
+      envKey: CHANGE_API_TOKEN
+      labelEn: "Change API Token"
+      labelZh: "变更 API Token"
+      label:
+        en: "Change API Token"
+        es-es: "Change API Token"
+        ja: "Change API Token"
+        ms: "Change API Token"
+        pt-br: "Change API Token"
+        ru: "Change API Token"
+        ko: "Change API Token"
+        zh-Hant: "變更 API Token"
+        zh: "变更 API Token"
+        tr: "Change API Token"
+      required: true
+      type: password
+    - default: 24h
+      edit: true
+      envKey: CRAWL_INTERVAL
+      labelEn: "Crawl Interval"
+      labelZh: "抓取间隔"
+      label:
+        en: "Crawl Interval"
+        es-es: "Intervalo de rastreo"
+        ja: "クロール間隔"
+        ms: "Selang Rangkakan"
+        pt-br: "Intervalo de rastreamento"
+        ru: "Интервал обхода"
+        ko: "크롤링 간격"
+        zh-Hant: "抓取間隔"
+        zh: "抓取间隔"
+        tr: "Tarama Aralığı"
+      required: true
+      type: text

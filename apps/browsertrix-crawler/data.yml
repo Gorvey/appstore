@@ -1,0 +1,32 @@
+name: "Browsertrix Crawler"
+tags:
+  - Tool
+title: "Browsertrix Crawler"
+description: "用于创建可回放网页归档的高保真浏览器式网络爬虫。"
+additionalProperties:
+  key: browsertrix-crawler
+  name: "Browsertrix Crawler"
+  tags:
+    - Tool
+  shortDescZh: "用于创建可回放网页归档的高保真浏览器式网络爬虫。"
+  shortDescEn: "High-fidelity browser-based web crawler for creating replayable web archives."
+  description:
+    en: "High-fidelity browser-based web crawler for creating replayable web archives."
+    es-es: "Rastreador web de alta fidelidad basado en navegador para crear archivos web reproducibles."
+    ja: "再生可能なウェブアーカイブを作成する高忠実度のブラウザベースウェブクローラー。"
+    ms: "Perangkak web berasaskan pelayar berketepatan tinggi untuk mencipta arkib web yang boleh dimainkan semula."
+    pt-br: "Rastreador web de alta fidelidade baseado em navegador para criar arquivos web reproduzíveis."
+    ru: "Высокоточный браузерный веб-краулер для создания воспроизводимых веб-архивов."
+    ko: "재생 가능한 웹 아카이브를 만드는 고충실도 브라우저 기반 웹 크롤러입니다."
+    zh-Hant: "用於建立可重播網頁封存的高擬真瀏覽器式網頁爬蟲。"
+    zh: "用于创建可回放网页归档的高保真浏览器式网络爬虫。"
+    tr: "Yeniden oynatılabilir web arşivleri oluşturan yüksek doğruluklu tarayıcı tabanlı web gezgini."
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  architectures:
+    - amd64
+    - arm64
+  website: https://crawler.docs.browsertrix.com/
+  github: https://github.com/webrecorder/browsertrix-crawler
+  document: https://crawler.docs.browsertrix.com/user-guide/
