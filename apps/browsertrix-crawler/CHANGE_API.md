@@ -17,6 +17,7 @@ Token 区分大小写并严格比较。不接受查询参数、Cookie、前后�
 | 方法与路径 | 用途 |
 | --- | --- |
 | `GET /healthz` | 无敏感信息的存活检查，无需认证 |
+| `POST /api/v1/crawls` | 使用当前种子和配置主动请求抓取，无请求体 |
 | `GET /api/v1/crawls` | 分页列出已经完成索引的抓取轮次 |
 | `GET /api/v1/crawls/{crawlId}` | 获取轮次状态、baseline、统计和 WACZ 依赖 |
 | `GET /api/v1/crawls/{crawlId}/changes` | 获取该轮首次出现的内容哈希 |
@@ -37,6 +38,7 @@ Streamable HTTP 入口为 `/mcp`，使用同一个 Bearer Token，提供：
 - `list_changed_contents`
 - `get_content`
 - `get_url_history`
+- `trigger_crawl`：无参数，主动请求抓取，返回值与 REST 相同
 
 不超过 64 KiB 的文本可由 `get_content` 直接内联返回；更大的文本和二进制返回受认证保护的 REST 路径。
 
@@ -51,3 +53,18 @@ export BROWSERTRIX_CHANGE_API_TOKEN='<CHANGE_API_TOKEN>'
 ## 数据与保留
 
 服务只读挂载 `crawls/`，将 SQLite 和提取正文写入 `change-api-data/`。归档至少连续两次扫描保持大小及修改时间不变，并通过 ZIP、`datapackage.json` 和 WARC 检查后才会发布为 ready。默认不自动删除归档、索引或正文。
+
+## 主动抓取
+
+```bash
+curl -X POST 'https://<你的域名>/api/v1/crawls' \
+  -H "Authorization: Bearer ${CHANGE_API_TOKEN}"
+```
+
+返回 HTTP 202：`{"status":"queued","coalesced":false}`。已有待处理请求时返回 `coalesced: true`，合并为一次抓取。复用 `config/seeds.txt` 和 `config/crawl-config.yml`，不接受临时 URL 或配置覆盖。
+
+爬虫等待定时间隔时每秒检查请求；正在抓取时，完成当前轮次后执行待处理请求，避免并发。请求保存到共享的 `crawl-control/`，重启后保留；没有有效种子时保留请求，每 60 秒重试。主动抓取完成后重新计算定时间隔。
+
+`queued` 仅表示请求已保存，不代表爬虫在线、抓取成功或索引完成。通过 `GET /api/v1/crawls` 或 MCP `list_crawls` 查询新轮次。此入口不返回 crawlId，也不提供逐请求状态关联。队列不可写时 REST 返回 503，MCP 返回工具错误。
+
+升级已有安装时，同步 Compose、初始化脚本和 change-api 源码，执行 `sh scripts/init.sh` 创建共享目录并设置权限，再按现有部署流程更新服务。归档目录仍只读挂载到 change-api；仅新增的控制目录允许双方写入。

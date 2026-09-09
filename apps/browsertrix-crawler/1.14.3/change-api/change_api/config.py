@@ -13,6 +13,7 @@ class Settings:
     scan_interval: float
     max_content_bytes: int
     mcp_inline_bytes: int
+    control_dir: Path = Path("/crawl-control")
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -21,6 +22,7 @@ class Settings:
             raise RuntimeError("CHANGE_API_TOKEN must be set and non-empty")
         return cls(
             token=token,
+            control_dir=Path(os.environ.get("CHANGE_API_CONTROL_DIR", "/crawl-control")),
             crawls_dir=Path(os.environ.get("CHANGE_API_CRAWLS_DIR", "/crawls")),
             data_dir=Path(os.environ.get("CHANGE_API_DATA_DIR", "/data")),
             scan_interval=_positive_float("CHANGE_API_SCAN_INTERVAL", 30.0),

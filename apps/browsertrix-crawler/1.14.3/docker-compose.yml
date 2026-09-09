@@ -10,6 +10,7 @@ services:
     volumes:
       - ./crawls:/crawls
       - ./config:/config:ro
+      - ./crawl-control:/crawl-control
     cap_add:
       - NET_ADMIN
       - SYS_ADMIN
@@ -21,12 +22,20 @@ services:
       - /bin/sh
       - "-c"
       - |
-        trap 'if [ -n "$$child" ]; then kill -TERM "$$child" 2>/dev/null; wait "$$child"; fi; exit 0' TERM INT
+        trap 'if [ -n "$$timer" ]; then kill -KILL "$$timer" 2>/dev/null; wait "$$timer"; fi; if [ -n "$$child" ]; then kill -TERM "$$child" 2>/dev/null; wait "$$child"; fi; exit 0' TERM INT
         if [ -f /crawls/.last-crawl-completed ]; then
           sleep "$${CRAWL_INTERVAL}" &
-          child=$$!
-          wait "$$child"
-          child=
+          timer=$$!
+          while [ ! -d /crawl-control/pending ] && kill -0 "$$timer" 2>/dev/null; do
+            sleep 1 &
+            child=$$!
+            wait "$$child"
+            child=
+          done
+          # The timer owns no resources; KILL also handles a request arriving before sleep execs.
+          kill -KILL "$$timer" 2>/dev/null || true
+          wait "$$timer" 2>/dev/null || true
+          timer=
         fi
         grep -E '^[[:space:]]*https?://' /config/seeds.txt > /tmp/seeds.txt || true
         if [ ! -s /tmp/seeds.txt ]; then
@@ -36,6 +45,7 @@ services:
           wait "$$child"
           exit 0
         fi
+        rmdir /crawl-control/pending 2>/dev/null || true
         crawl --config /config/crawl-config.yml --seedFile /tmp/seeds.txt &
         child=$$!
         wait "$$child"
@@ -56,12 +66,14 @@ services:
       CHANGE_API_TOKEN: "${CHANGE_API_TOKEN}"
       CHANGE_API_CRAWLS_DIR: /crawls
       CHANGE_API_DATA_DIR: /data
+      CHANGE_API_CONTROL_DIR: /crawl-control
       CHANGE_API_SCAN_INTERVAL: "30"
       CHANGE_API_MAX_CONTENT_BYTES: "33554432"
       CHANGE_API_MCP_INLINE_BYTES: "65536"
     volumes:
       - ./crawls:/crawls:ro
       - ./change-api-data:/data
+      - ./crawl-control:/crawl-control
     expose:
       - "8080"
     healthcheck:

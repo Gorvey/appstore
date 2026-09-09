@@ -12,6 +12,7 @@ from .archive import ArchiveIndexer
 from .auth import token_matches
 from .config import Settings
 from .db import Repository, decode_cursor
+from .trigger import request_crawl
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -24,7 +25,8 @@ mcp = FastMCP(
     "Browsertrix Change API",
     instructions=(
         "Query Browsertrix crawl rounds and retrieve content hashes that were first "
-        "observed in each round. Save returned cursors on the client side."
+        "observed in each round. Save returned cursors on the client side. "
+        "Use trigger_crawl to queue a crawl using the configured seeds and settings."
     ),
     streamable_http_path="/mcp",
     stateless_http=True,
@@ -97,6 +99,28 @@ def list_crawls(
     limit: int = Query(default=100, ge=1, le=500),
 ):
     return repository.list_crawls(_cursor(cursor), limit)
+
+
+@app.post("/api/v1/crawls", status_code=202)
+def trigger_crawl():
+    """Queue a crawl using the current configuration without waiting for completion."""
+    try:
+        return request_crawl(settings.control_dir)
+    except OSError as exc:
+        logging.getLogger(__name__).exception("Cannot queue crawl")
+        raise HTTPException(status_code=503, detail="crawl queue unavailable") from exc
+
+
+@mcp.tool(name="trigger_crawl")
+def trigger_crawl_tool() -> dict:
+    """Queue a crawl of configured seeds. Busy crawlers run it next; requests coalesce.
+
+    Queued does not mean completed. Poll list_crawls for indexed results.
+    """
+    try:
+        return request_crawl(settings.control_dir)
+    except OSError as exc:
+        raise ValueError("crawl queue unavailable") from exc
 
 
 @app.get("/api/v1/crawls/{crawl_id}")

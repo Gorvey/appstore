@@ -25,6 +25,7 @@ async def main() -> None:
                 "get_url_history",
                 "list_changed_contents",
                 "list_crawls",
+                "trigger_crawl",
             ]
             assert names == expected, names
 
